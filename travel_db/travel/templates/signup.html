@@ -1,0 +1,94 @@
+{% extends 'homepage.html' %}
+
+{% block block1 %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <title>SignUp</title>
+  </head>
+  <style type="text/css">
+  	.col-md-2 {
+        display: none; /* Remove this column for the signup page */
+    }
+    .second-col-bg {
+        background-image: url("../static/images/bg-img.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-height: 98vh; /* Set a minimum height for the background image */
+    }
+    .card {
+        box-shadow: 0 10px 20px rgb(174, 226, 185);
+        background-color: #fff;
+        border-radius: 10px;
+        margin: 50px auto;
+        padding: 5px;
+        width: 500px;
+    }
+    .btn-primary {
+        background-color: rgb(174, 226, 185); /* Yellow background color */
+        align-items: center;
+        color: #000; /* Black text color */
+        color: white;
+        font-size: 18px;
+        
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .btn-primary:hover {
+        background-color: rgb(174, 226, 185); /* Lighter yellow on hover */
+        color: whitesmoke; /* Keep text color black on hover */
+        scale: 1;
+    }
+  </style>
+{% endblock %}
+{% block block2 %}
+	<div class="fluid-container second-col-bg">
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand" href="/">Smart Tours</a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/loginpage">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/signuppage">SignUp</a>
+                        </li>
+                        <li class="nav-item" style="margin-left: 1100px;">
+                            <a class="nav-link" href="/aboutus" tabindex="-1" aria-disabled="true">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <h1 align="center">{{msg}}</h1>
+        <div class="card" >
+            
+                <div style="background-color:rgb(174, 226, 185); border-radius: 7px; border-color:rgb(174, 226, 185); border-style: solid; padding: 10px;">
+                    <h3 style="color: white; text-align: center; font-family: 'Arial', sans-serif; font-size: 26px; font-weight: 400; font:bold;">SignUp</h3>
+                </div>
+                <div style="padding-right:20px; margin:auto;padding-top: 10px;">
+                <form method="POST" >
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <p>Already have an account? <a href="/loginpage" style="color: rgb(174, 226, 185); justify-content: center;">Login</a></p>
+                    <input type="submit" value="Create Account" class="btn btn-primary">
+                </form>
+                </div>
+            
+        </div>
+    </div>
+{% endblock %}

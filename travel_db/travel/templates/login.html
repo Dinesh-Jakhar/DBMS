@@ -1,0 +1,113 @@
+{% extends 'homepage.html' %}
+
+{% block block1 %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <title>Login</title>
+  </head>
+  <style type="text/css">
+  	.col-md-2 {
+  		display: none; /* Remove this column for the login page */
+  	}
+  	.second-col-bg {
+  		background-image: url("../static/images/bg-img.jpg");
+  		background-repeat: no-repeat;
+  		background-position: center;
+  		background-size: cover;
+      min-height: 98vh;
+  	}
+  	.card {
+      box-shadow: 0 4px 8px 0 rgb(174, 226, 185);
+      transition: 0.3s;
+      width: 400px;
+      border-radius: 10px;
+      margin: 0 auto; /* Center the card horizontally */
+      margin-top: 100px; /* Add some top margin for better positioning */
+  	}
+  	
+  	
+  	.socials {
+      background-color: rgb(174, 226, 185);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0 3rem 0;
+  	}
+  	.socials li {
+      margin: 0 10px;
+  	}
+  	.socials a {
+      text-decoration: none;
+      color: #fff;
+  	}
+  	.socials a i {
+      font-size: 1.1rem;
+      transition: color .4s ease;
+  	}
+  	.socials a:hover {
+      color: rgb(174, 226, 185);
+  	}
+  	.footer-bottom {
+      background: #000;
+      width: 100vw;
+      padding: 20px 0;
+      text-align: center;
+  	}
+  	.footer-content p {
+      font-size: 14px;
+      word-spacing: 2px;
+      text-transform: capitalize;
+  	}
+  	.footer-bottom span {
+      text-transform: uppercase;
+      opacity: .4;
+      font-weight: 200;
+  	}
+  </style>
+{% endblock %}
+{% block block2 %}
+	<div class="fluid-container second-col-bg">
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Smart Tours</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/loginpage">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signuppage" tabindex="-1" aria-disabled="true">SignUp</a>
+        </li>
+        <li class="nav-item" style="margin-left: 1100px;">
+          <a class="nav-link" href="/aboutus" tabindex="-1" aria-disabled="true">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="card">
+  <div class="card-header" style="background-color: rgb(174, 226, 185); border-radius: 5px; border-color:rgb(174, 226, 185); border-style: solid; padding: 10px;">
+      <h3 style="color: rgb(12, 12, 12); text-align: center; font-family: 'Arial', sans-serif; font-size: 26px; font-weight: 400; font:bold;">Login</h3>
+  </div>
+  <form method="POST" class="login-form" style="padding: 25px;">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <a href="/forgotpassword" style="color: rgb(174, 226, 185); font-family: 'Arial', sans-serif; font-size: xx-small; text-decoration: none;">Forgot Password?</a><br>
+      <p style="text-align: center; font-family: 'Arial', sans-serif; font-size: 14px; margin-top: 10px;">
+          Don't have an account? <a href="/signuppage" style="color: rgb(174, 226, 185); font-family: 'Arial', sans-serif; text-decoration: none;">Sign Up</a>
+      </p>
+      <input type="submit" value="Login" class="btn btn-primary" style="color: rgb(11, 11, 11); font-family: 'Arial', sans-serif; font-size: 18px;">
+  </form>
+</div>
+</div>
+{% endblock %}
